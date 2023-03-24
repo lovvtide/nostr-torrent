@@ -225,24 +225,19 @@ Default hosts (`hosts_viewer` and `hosts_publisher`) can be updated with kind `0
 
 ```
 {
-	contacts: [
-		'<pubkey>',
-		'<pubkey>',
-		...
-	],
 	relays: [
 		{ url: <wss://whatever>, read: true, write: true },
 		{ url: <wss://whatever>, read: true, write: true },
 		...
 	],
 	hosts_publisher: [
-    { url: <media.domain.com>, timestamp:<integer>},
-    { url: <media.domain.org>, timestamp:<integer>},
+    		{ url: <media.domain.com>, timestamp: <integer> },
+    		{ url: <media.domain.org>, timestamp: <integer> },
 		...
 	],
 	hosts_viewer: [
-    { url: <media.domain.com>, timestamp:<integer>},
-    { url: <media.domain.org>, timestamp:<integer>},
+    		{ url: <media.domain.com>, timestamp: <integer> },
+    		{ url: <media.domain.org>, timestamp: <integer> },
 		...
 	]
 }
