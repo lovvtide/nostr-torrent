@@ -308,7 +308,7 @@ A `user_publisher` can upload a custom thumbnail as an infohash event (kind 9) a
 
 https://github.com/lovvtide
 
-https://twitter.com/stuartbowman_
+[https://twitter.com/stuartbowman_]("https://twitter.com/stuartbowman_")
 
 https://satellite.earth/
 
