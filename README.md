@@ -52,13 +52,13 @@ We propose the following changes within one or multiple separate NIPs.
 
 New tags:
 
-- an `i` tag to include infohashes of media files in order to allow users to play media files on a client.
+- an `x` tag to include varios hashes of media files in order to allow users to play media files on a client.
 
 - an `m` tag to indicate file types of uploaded files.
 
 New kind:
 
-- a kind `9` event to indicate the creation of an infohash.
+- a kind `2001` event to describe identifiers (hashes) and other properties of a media file that can be used within the Nostr protocol.
 
 [<- back to table of contents](#table-of-contents)
 
@@ -150,7 +150,7 @@ There are different approaches to achieve consensus starting from using an empty
   "content": "",
   "kind": <integer>,
   "tags": [
-    ["i", <infohash>, <recommended_host>],
+    ["x", <infohash>, <recommended_host>],
     ["m", <mimetype>],
     ["name", <filename>],
     ["size", <bytelength>],
@@ -166,10 +166,10 @@ Example:
 {
     "created_at": 1679552209,
     "content": "",
-    "kind": 9,
+    "kind": 2001,
     "tags": [
         [
-            "i",
+            "x",
             "a19a70552cc801415a6071993c04b3ab21572438",
             "https://media.satellite.earth"
         ],
@@ -192,12 +192,12 @@ Example:
 }
 ```
 
-The client can pull the metadata for torrents referenced in any event, the id of the torrent needs to be added as an "e" tag to the tags array of the event that is referencing it.
+The client can pull the metadata for torrents referenced in any event, the id of the torrent needs to be added as an `e` tag to the tags array of the event that is referencing it.
 
 
 ### Reference an infohash event
 
-For text note events that contain a link to a file represented by an infohash event (kind 9), it's recommended to include the id of the infohash event (kind 9) as an "e" tag of the text note (kind 1) event.
+For text note events that contain a link to a file represented by an infohash event (kind 2001), it's recommended to include the id of the infohash event (kind 2001) as an `e` tag of the text note (kind 1) event.
 
 ```
 {
@@ -260,7 +260,7 @@ Without a timestamp, a `client_viewer` would have to request media files from al
 ![hosts](find_hosts_v2_dark_thin.png "hosts")
 
 `recommended_host`
-- A `user_publisher` can optionally specify a recommended host in event's tags array, e.g. `["i", <infohash>, <recommended_host>]`
+- A `user_publisher` can optionally specify a recommended host in event's tags array, e.g. `["x", <infohash>, <recommended_host>]`
 
 `hosts_publisher`
 - If a recommended host is not included in the event, a client can try to fetch a media file from a list of `hosts_publisher` specified in profile settins of a `user_publisher` with a kind `0` event (`set_metadata`).
@@ -288,7 +288,7 @@ Some paid hosts might choose a business modal of downloading all popular media f
 
 ### Custom previews
 
-A `user_publisher` can upload a custom thumbnail as an infohash event (kind 9) and then reference it in another infohash event (kind 9) to upload a video.
+A `user_publisher` can upload a custom thumbnail as an infohash event (kind 2001) and then reference it in another infohash event (kind 2001) to upload a video.
 
 ### Why no IPFS support?
 - **Infohash** and IPFS hashes use different hashing algorithms.
