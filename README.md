@@ -1,3 +1,7 @@
+> **Note**
+> This project is no longer active, having been incorporated by [NIP-94](https://github.com/nostr-protocol/nips/blob/master/94.md)
+
+
 # Media Files
 
 # Table of Contents
